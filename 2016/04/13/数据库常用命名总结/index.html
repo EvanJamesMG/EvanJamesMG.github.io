@@ -1,0 +1,712 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.useso.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+  <link rel="alternate" href="http://evanjamesmg.github.io/atom.xml" title="EMG's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="最近笔试题目中经常出现涉及到数据库的题目，都是常用的增删查改的命令。这里总结一下MySQL中常用的简单的数据库命令，避免再次遇到时又是大写的懵逼。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库常用命名总结">
+<meta property="og:url" content="http://yoursite.com/2016/04/13/数据库常用命名总结/index.html">
+<meta property="og:site_name" content="EMG's Blog">
+<meta property="og:description" content="最近笔试题目中经常出现涉及到数据库的题目，都是常用的增删查改的命令。这里总结一下MySQL中常用的简单的数据库命令，避免再次遇到时又是大写的懵逼。">
+<meta property="og:updated_time" content="2016-04-13T09:09:26.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库常用命名总结">
+<meta name="twitter:description" content="最近笔试题目中经常出现涉及到数据库的题目，都是常用的增删查改的命令。这里总结一下MySQL中常用的简单的数据库命令，避免再次遇到时又是大写的懵逼。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 数据库常用命名总结 | EMG's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">EMG's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'dumfHMzuhtjqz9DfsMoD','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据库常用命名总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-13T11:28:32+08:00" content="2016-04-13">
+              2016-04-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/13/数据库常用命名总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/13/数据库常用命名总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+		  
+		  
+			<span>&nbsp; | &nbsp;
+			<span id="busuanzi_value_page_pv" ></span>次阅读
+			</span>    
+		  
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近笔试题目中经常出现涉及到数据库的题目，都是常用的增删查改的命令。这里总结一下MySQL中常用的简单的数据库命令，避免再次遇到时又是大写的懵逼。</p>
+<h1 id="数据类型介绍"><a href="#数据类型介绍" class="headerlink" title="数据类型介绍"></a>数据类型介绍</h1><ul>
+<li>整数类型：INT(显示宽度)</li>
+<li>浮点型：FLOAT，DOUBLE（总长度，小数点后长度）</li>
+<li>字符串：CHAR(长度固定)，VARCHAR（长度可变）</li>
+<li>字符数据：TEXT 一种特殊的字符串类型，只能保存字符数据，比如新闻的内容<br>其他数据类型平时遇到较少，先不做总结。</li>
+</ul>
+<h1 id="数据库的操作"><a href="#数据库的操作" class="headerlink" title="数据库的操作"></a>数据库的操作</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">创建数据库</span><br><span class="line">creat datebase 数据库名字;</span><br><span class="line"></span><br><span class="line">显示存在的数据库</span><br><span class="line">show database;</span><br><span class="line"></span><br><span class="line">删除数据库</span><br><span class="line">drop database 数据库名字;</span><br><span class="line"></span><br><span class="line">查询MySQL支持的存储引擎</span><br><span class="line">show engines;</span><br><span class="line">或</span><br><span class="line">show variables like &apos;have%&apos;;</span><br><span class="line"></span><br><span class="line">查询默认的存储引擎</span><br><span class="line">show variables like &apos;storage_engine&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="创建、修改和删除表"><a href="#创建、修改和删除表" class="headerlink" title="创建、修改和删除表"></a>创建、修改和删除表</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">creat table 表名( 属性名 数据类型[完整性约束条件]，</span><br><span class="line">				  属性名 数据类型[完整性约束条件]，</span><br><span class="line">                 .</span><br><span class="line">                 .</span><br><span class="line">                 .</span><br><span class="line">			     属性名 数据类型        </span><br><span class="line">				);</span><br></pre></td></tr></table></figure>
+<p><strong>设置表的主键</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">creat table example1(stu_id int primary key,</span><br><span class="line">					 stu_name varchar(20),</span><br><span class="line">                     stu_sex boolean</span><br><span class="line">					);</span><br></pre></td></tr></table></figure></p>
+<p><strong>多字段主键</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">creat table example2(stu_id int,</span><br><span class="line">					 course_id int,</span><br><span class="line">					 grade float,</span><br><span class="line">                     primary key(stu_id,course_id)</span><br><span class="line">					);</span><br></pre></td></tr></table></figure></p>
+<p><strong>设置表达的外键</strong><br>设置外键的原则就是必须依赖于数据库中已经存在的父表的<strong>主键</strong>;外键可以为空值。外键的作用是建立该表与其父表的关联关系。父表中删除某条消息时，子表中与其对应的信息也必须有相应的改变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">constraint 外键别名 foreign key(属性1.1，属性1.2)</span><br><span class="line">                 references 表名(属性1.1，属性1.2)</span><br><span class="line"></span><br><span class="line">creat table example3(id int primary key,</span><br><span class="line">					 stu_id int,</span><br><span class="line">					 course_id int,</span><br><span class="line">					 constraint c_fk foreign key(stu_id,course_id)</span><br><span class="line">                     references example2(stu_id,course_id)</span><br><span class="line">					);</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：子表的外键关联的必须是父表的主键，而且数据类型必须一致。</p>
+<p><strong>完整性约束条件表</strong></p>
+<table>
+<thead>
+<tr>
+<th>约束条件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>primary key</td>
+<td>标识该属性为该表的主键，可以唯一的标识对应的元组</td>
+</tr>
+<tr>
+<td>foreign key</td>
+<td>标识该属性为该表的外键，是与之联系的某表的主键</td>
+</tr>
+<tr>
+<td>not null</td>
+<td>标识该属性不能为空</td>
+</tr>
+<tr>
+<td>unique</td>
+<td>标识该属性的值是唯一的</td>
+</tr>
+<tr>
+<td>auto_increment</td>
+<td>标识该属性的值自动增加</td>
+</tr>
+<tr>
+<td>default</td>
+<td>为该属性值设置默认值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>查看表结构</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">describe 表名;</span><br><span class="line"></span><br><span class="line">可缩写为</span><br><span class="line">desc 表名;</span><br></pre></td></tr></table></figure></p>
+<p><strong>查看表的详细结构</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table 表名;</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><p><strong>修改表名</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 旧表名 rename [to] 新表名;</span><br><span class="line"></span><br><span class="line">alter table example0 rename user;</span><br></pre></td></tr></table></figure></p>
+<p><strong>修改字段的数据类型</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 modify 属性名 数据类型;</span><br><span class="line"></span><br><span class="line">例如修改user表中name字段的数据类型</span><br><span class="line">alter table user modify name varchar(30);</span><br></pre></td></tr></table></figure></p>
+<p><strong>修改字段名</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 change 旧属性名 新属性名 新数据类型;</span><br><span class="line"></span><br><span class="line">可以只修改属性名不修改数据类型</span><br><span class="line">alter table example change stu_name name varchar(20);</span><br><span class="line"></span><br><span class="line">也可以既修改属性名又修改数据类型</span><br><span class="line">alter table example change stu_sex sex int(2);</span><br></pre></td></tr></table></figure></p>
+<p><strong>增加字段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 add 属性名1 数据类型 [完整性约束条件] [first|after 属性名2];</span><br></pre></td></tr></table></figure></p>
+<p>表的第一个位置增加字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table user add num int(8) primary key first;</span><br></pre></td></tr></table></figure></p>
+<p>表的指定位置之后增加字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table user add address varchar(30) not null after phone;</span><br></pre></td></tr></table></figure></p>
+<p><strong>删除字段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 drop 属性名;</span><br><span class="line"></span><br><span class="line">alter table user drop id;</span><br></pre></td></tr></table></figure></p>
+<p><strong>修改字段的排列位置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 modify 属性名1 数据类型 first|after 属性名2;</span><br><span class="line"></span><br><span class="line">字段修改到第一个位置</span><br><span class="line">alter table user modify name varchar(20) first;</span><br><span class="line"></span><br><span class="line">字段修改到指定位置</span><br><span class="line">alter table user modify sex tinyint(1) after age;</span><br></pre></td></tr></table></figure>
+<p><strong>更改表的存储引擎</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 engine = 存储引擎名;</span><br><span class="line"></span><br><span class="line">alter table user engine=MyISAM;</span><br></pre></td></tr></table></figure></p>
+<p><strong>删除表的外键约束</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 drop foreign key 外键别名;</span><br><span class="line"></span><br><span class="line">alter table example3 drop foreign key c_fk;</span><br></pre></td></tr></table></figure></p>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table 表名</span><br></pre></td></tr></table></figure>
+<p>注意：如果有外键关联，先删除子表的外键约束，然后再删除父表。</p>
+<h1 id="插入、更新与删除数据"><a href="#插入、更新与删除数据" class="headerlink" title="插入、更新与删除数据"></a>插入、更新与删除数据</h1><h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><p><strong>不指定具体的字段名</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名 values（值1，值2，...,值n）;</span><br><span class="line"></span><br><span class="line">insert into product values（1010,&apos;ABC药物&apos;，&apos;治疗感冒&apos;，&apos;ABC制药厂&apos;，&apos;北京市昌平区&apos;）</span><br></pre></td></tr></table></figure></p>
+<p><strong>列出所有字段</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名(属性1，属性2，...,属性n) values（值1，值2，...,值n）;</span><br><span class="line"></span><br><span class="line">insert into product(id,name,function,company,address) values（1010,&apos;ABC药物&apos;，&apos;治疗感冒&apos;，&apos;ABC制药厂&apos;，&apos;北京市昌平</span><br></pre></td></tr></table></figure></p>
+<p><strong>指定字段插入数据</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名(属性1，属性2，...,属性m) values（值1，值2，...,值m）;</span><br><span class="line"></span><br><span class="line">insert into product(id,name,company) values（1010,&apos;ABC药物&apos;，&apos;ABC制药厂&apos;）</span><br></pre></td></tr></table></figure></p>
+<p>注意：没有值插入的属性，数据库系统自动为其插入默认值（空值null）。<br>同时插入多条记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名[属性列表] </span><br><span class="line">           values(取值表1)，（取值表2）...</span><br><span class="line">		  （取值表n）;</span><br><span class="line"></span><br><span class="line">insert into product(id,name,company) </span><br><span class="line">			values（1010,&apos;A药物&apos;，&apos;A制药厂&apos;）,</span><br><span class="line">				  （1011,&apos;B药物&apos;，&apos;B制药厂&apos;）,</span><br><span class="line">		          （1012,&apos;C药物&apos;，&apos;C制药厂&apos;）;</span><br></pre></td></tr></table></figure></p>
+<p><strong>将查询结果插入到表中</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名1（属性列表1）</span><br><span class="line">       select 属性列表2 from 表名2 where 条件表达式；</span><br><span class="line"></span><br><span class="line">insert into product(id,function,name,address,company)</span><br><span class="line">			select id,function,name,address,company</span><br><span class="line">			form medicine;</span><br></pre></td></tr></table></figure></p>
+<h2 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">update 表名</span><br><span class="line">       set 属性名1=取值1，属性名2 = 取值2，</span><br><span class="line">       ....</span><br><span class="line">       属性名n = 取值n</span><br><span class="line">	   where 条件表达式;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">update product</span><br><span class="line">		set name=&apos;AAA 感冒药&apos;，address = &apos;北京市朝阳区&apos;</span><br><span class="line">		where id = 1001;</span><br><span class="line"></span><br><span class="line">update product</span><br><span class="line">		set function=&apos;护理头发&apos;，address=&apos;北京市昌平区&apos;</span><br><span class="line">		where id&gt;=1009 and id&lt;=1011;</span><br></pre></td></tr></table></figure>
+<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名[where 条件表达式];</span><br><span class="line"></span><br><span class="line">delete from product where id=1001;</span><br><span class="line"></span><br><span class="line">delete from product where address=&apos;北京市顺义区&apos;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag">#数据库</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/12/数据加密/" rel="next" title="数据加密">
+                <i class="fa fa-chevron-left"></i> 数据加密
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/04/13/数据库常用命名总结/"
+     data-title="数据库常用命名总结"
+     data-content=""
+     data-url="http://yoursite.com/2016/04/13/数据库常用命名总结/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/13/数据库常用命名总结/"
+           data-title="数据库常用命名总结" data-url="http://yoursite.com/2016/04/13/数据库常用命名总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/IMG_self.jpg"
+               alt="EMG" />
+          <p class="site-author-name" itemprop="name">EMG</p>
+          <p class="site-description motion-element" itemprop="description">I walk slowly,but I never stop.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://evanjamesmg.github.io/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/EvanJamesMG" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2508740035" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型介绍"><span class="nav-number">1.</span> <span class="nav-text">数据类型介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库的操作"><span class="nav-number">2.</span> <span class="nav-text">数据库的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number">2.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建、修改和删除表"><span class="nav-number">2.2.</span> <span class="nav-text">创建、修改和删除表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建表"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改表"><span class="nav-number">2.2.2.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除表"><span class="nav-number">2.2.3.</span> <span class="nav-text">删除表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入、更新与删除数据"><span class="nav-number">3.</span> <span class="nav-text">插入、更新与删除数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据"><span class="nav-number">3.1.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新数据"><span class="nav-number">3.2.</span> <span class="nav-text">更新数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据"><span class="nav-number">3.3.</span> <span class="nav-text">删除数据</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMG</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+总访客数<span id="busuanzi_value_site_uv"></span>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"emg"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
