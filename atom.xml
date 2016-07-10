@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-10T07:15:12.669Z</updated>
+  <updated>2016-07-10T13:50:58.551Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM</title>
+    <link href="http://yoursite.com/2016/07/10/JVM/"/>
+    <id>http://yoursite.com/2016/07/10/JVM/</id>
+    <published>2016-07-10T12:25:46.000Z</published>
+    <updated>2016-07-10T13:50:58.551Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;生命周期&quot;&gt;&lt;a href=&quot;#生命周期&quot; class=&quot;headerlink&quot; title=&quot;生命周期&quot;&gt;&lt;/a&gt;生命周期&lt;/h1&gt;&lt;p&gt;知识点总结：java虚拟机的生命周期，当一个java应用main函数启动时虚拟机也同时被启动，而只有当在虚拟机实例中的所有非守护进程都结束时，java虚拟机实例才结束生命。&lt;/p&gt;
+&lt;p&gt;一个运行时的Java虚拟机实例的天职是：负责运行一个java程序。当启动一个Java程序时，一个虚拟机实例也就诞生了。当该程序关闭退出，这个虚拟机实例也就随之消亡。如果同一台计算机上同时运行三个Java程序，将得到三个Java虚拟机实例。每个Java程序都运行于它自己的Java虚拟机实例中。&lt;/p&gt;
+&lt;p&gt;Java虚拟机实例通过调用某个初始类的main()方法来运行一个Java程序。而这个main()方法必须是共有的(public)、静态的(static)、返回值为void，并且接受一个字符串数组作为参数。任何拥有这样一个main()方法的类都可以作为Java程序运行的起点。&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Test&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// TODO Auto-generated method stub&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在上面的例子中，Java程序初始类中的main()方法，将作为该程序初始线程的起点，任何其他的线程都是由这个初始线程启动的。&lt;/p&gt;
+&lt;p&gt;在Java虚拟机内部有两种线程：&lt;em&gt;守护线程和非守护线程&lt;/em&gt;。&lt;em&gt;守护线程&lt;/em&gt; 通常是由虚拟机自己使用的，比如执行垃圾收集任务的线程。但是，Java程序也可以把它创建的任何线程标记为守护线程。而Java程序中的初始线程——就是开始于main()的那个，是&lt;em&gt;非守护线程&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;只要还有任何非守护线程在运行，那么这个Java程序也在继续运行。当该程序中所有的非守护线程都终止时，虚拟机实例将自动退出。假若安全管理器允许，程序本身也能够通过调用Runtime类或者System类的exit()方法来退出。&lt;/p&gt;
+&lt;h1 id=&quot;体系结构&quot;&gt;&lt;a href=&quot;#体系结构&quot; class=&quot;headerlink&quot; title=&quot;体系结构&quot;&gt;&lt;/a&gt;体系结构&lt;/h1&gt;&lt;p&gt;首先，当一个程序启动之前，它的class会被&lt;strong&gt;类装载器&lt;/strong&gt;装入&lt;strong&gt;方法区&lt;/strong&gt;(当虚拟机装载某个类型时，它使用类装载器定位相应的class文件，然后读入这个class文件——1个线性二进制数据流，然后它传输到虚拟机中，紧接着虚拟机提取其中的类型信息，并将这些信息存储到方法区。该类型中的类（静态）变量同样也是存储在方法区中)，执行引擎读取方法区的字节码自适应解析，边解析就边运行（其中一种方式），然后pc寄存器(程序计数器)指向了main函数所在位置，虚拟机开始为main函数在虚拟机栈中预留一个栈帧（每个方法都对应一个栈帧），然后开始跑main函数，main函数里的代码被执行引擎映射成本地操作系统里相应的实现，然后调用本地库接口，本地方法运行的时候，操纵系统会为本地方法分配本地方法栈，用来储存一些临时变量，然后运行本地方法，调用操作系统APIi等等.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;当JAVA虚拟机运行一个程序时，它需要内存来存储许多东西，例如：字节码、从已装载的class文件中得到的其他信息、程序创建的对象、传递给方法的参数，返回值、局部变量等等。Java虚拟机把这些东西都组织到几个“运行时数据区”中，以便于管理。&lt;/p&gt;
+&lt;p&gt;某些运行时数据区是由程序中所有线程共享的，还有一些则只能由一个线程拥有。每个Java虚拟机实例都有一个方法区以及一个堆，它们是由该虚拟机实例中所有的线程共享的。当虚拟机装载一个class文件时，它会从这个class文件包含的二进制数据中解析类型信息。然后把这些类型信息放到方法区中。当程序运行时，虚拟机会把所有该程序在运行时&lt;em&gt;创建的对象&lt;/em&gt;都放到堆中。&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;http://7xw667.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%872.png&quot; alt=&quot;插图&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;程序计数器：&quot;&gt;&lt;a href=&quot;#程序计数器：&quot; class=&quot;headerlink&quot; title=&quot;程序计数器：&quot;&gt;&lt;/a&gt;程序计数器：&lt;/h2&gt;&lt;p&gt;占的空间较小，可以看作是字节码行号指示器，字节码解析器是通过改变它的值来选取下一条字节码指令， 分支，循环，跳转，异常处理，线程恢复等，都依赖它来完成。&lt;strong&gt;&lt;em&gt;每一条线程都有独立的一个计数器&lt;/em&gt;&lt;/strong&gt;，也可以看作是私有内存，如果执行本地方法，这个计数器则为空， 该区域是唯一的一个没有Out Of Memory情况的区域。&lt;br&gt;虚拟机的pc寄存器（程序计数器）是用于存放下一条将要执行的指令的地址(字节码流)。&lt;/p&gt;
+&lt;p&gt;##Java虚拟机栈：&lt;br&gt;虚拟机栈描述的是java方法执行的内存模型，跟程序计数器一样，它也是每一个线程都会创建一个，每一个方法执行时，都会创建栈帧（&lt;strong&gt;&lt;em&gt;用于存储局部变量，操作数，动态连接，方法出口等信息&lt;/em&gt;&lt;/strong&gt;），伴随着栈帧的入栈，出栈意味着一个方法的开始到结束，虚拟机栈的局部变量表，存储基本数据类型（int 等），对象引用。如果方法的深度大于虚拟机栈，就会报StackOverFlowError ,比如递归调用方法的操作等，若是动态扩展的大小超过了限制则会报OutOfMemoryError.&lt;/p&gt;
+&lt;p&gt;每当启动一个新线程时，Java虚拟机都会为它分配一个Java栈。Java栈以帧为单位保存线程的运行状态。虚拟机只会直接对Java栈执行两种操作：以帧为单位的压栈和出栈。&lt;/p&gt;
+&lt;p&gt;某个线程正在执行的方法被称为该线程的当前方法，当前方法使用的栈帧称为当前帧，当前方法所属的类称为当前类，当前类的常量池称为当前常量池。在线程执行一个方法时，它会跟踪当前类和当前常量池。此外，当虚拟机遇到栈内操作指令时，它对当前帧内数据执行操作。&lt;/p&gt;
+&lt;p&gt;每当线程调用一个Java方法时，虚拟机都会在该线程的Java栈中压入一个新帧。而这个新帧自然就成为了当前帧。在执行这个方法时，它使用这个帧来存储参数、局部变量、中间运算结果等数据。&lt;/p&gt;
+&lt;p&gt;Java方法可以以两种方式完成。一种通过return返回的，称为正常返回；一种是通过抛出异常而异常终止的。不管以哪种方式返回，虚拟机都会将当前帧弹出Java栈然后释放掉，这样上一个方法的帧就成为当前帧了。&lt;/p&gt;
+&lt;p&gt;跟程序计数器一样，&lt;strong&gt;虚拟街栈也是每一个线程都会创建一个，每一个方法执行时，都会创建栈帧（用于存储局部变量，操作数，动态连接，方法出口等信息）。Java帧上的所有数据都是此线程私有的。任何线程都不能访问另一个线程的栈数据，&lt;/strong&gt;因此我们不需要考虑多线程情况下栈数据的访问同步问题。当一个线程调用一个方法时，方法的的局部变量保存在调用线程Java栈的帧中。只有一个线程能总是访问那些局部变量，即调用方法的线程。&lt;/p&gt;
+&lt;p&gt;##本地方法栈：&lt;br&gt;类似于虚拟机栈，它为native方法提供服务。也会报栈溢出和内存溢出的错误，有些虚拟机则把虚拟机栈和本地方法栈合二为一。&lt;/p&gt;
+&lt;p&gt;当某个线程调用一个本地方法时，它就进入了一个全新的并且不再受虚拟机限制的世界。本地方法可以通过本地方法接口来访问虚拟机的运行时数据区，但不止如此，它还可以做任何它想做的事情。&lt;/p&gt;
+&lt;p&gt;本地方法本质上时依赖于实现的，虚拟机实现的设计者们可以自由地决定使用怎样的机制来让Java程序调用本地方法。&lt;/p&gt;
+&lt;p&gt;任何本地方法接口都会使用某种本地方法栈。当线程调用Java方法时，虚拟机会创建一个新的栈帧并压入Java栈。然而当它调用的是本地方法时，虚拟机会保持Java栈不变，不再在线程的Java栈中压入新的帧，虚拟机只是简单地动态连接并直接调用指定的本地方法。&lt;/p&gt;
+&lt;p&gt;如果某个虚拟机实现的本地方法接口是使用C连接模型的话，那么它的本地方法栈就是C栈。当C程序调用一个C函数时，其栈操作都是确定的。传递给该函数的参数以某个确定的顺序压入栈，它的返回值也以确定的方式传回调用者。同样，这就是虚拟机实现中本地方法栈的行为。&lt;/p&gt;
+&lt;p&gt;很可能本地方法接口需要回调Java虚拟机中的Java方法，在这种情况下，该线程会保存本地方法栈的状态并进入到另一个Java栈。&lt;/p&gt;
+&lt;p&gt;下图描绘了这样一个情景，就是当一个线程调用一个本地方法时，本地方法又回调虚拟机中的另一个Java方法。这幅图展示了JAVA虚拟机内部线程运行的全景图。一个线程可能在整个生命周期中都执行Java方法，操作它的Java栈；或者它可能毫无障碍地在Java栈和本地方法栈之间跳转。&lt;/p&gt;
+&lt;p&gt;该线程首先调用了两个Java方法，而第二个Java方法又调用了一个本地方法，这样导致虚拟机使用了一个本地方法栈。假设这是一个C语言栈，其间有两个C函数，第一个C函数被第二个Java方法当做本地方法调用，而这个C函数又调用了第二个C函数。之后第二个C函数又通过本地方法接口回调了一个Java方法（第三个Java方法），最终这个Java方法又调用了一个Java方法（它成为图中的当前方法）。&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;http://7xw667.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%873.png&quot; alt=&quot;插图&quot;&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;Java堆&quot;&gt;&lt;a href=&quot;#Java堆&quot; class=&quot;headerlink&quot; title=&quot;Java堆:&quot;&gt;&lt;/a&gt;Java堆:&lt;/h2&gt;&lt;p&gt;java堆是虚拟机内存中最大的一块区域，&lt;strong&gt;被所有的线程共享&lt;/strong&gt;，用于存储创建的对象的实例，在虚拟机启动时启动，GC所管理的主要区域，堆中还可以细分区域，比如&lt;strong&gt;新生代&lt;/strong&gt;和&lt;strong&gt;老年代&lt;/strong&gt;： Eden,From Survivor ,To Survivor等空间，这些区域的细分是为了GC方便回收， 堆可以是内存不连续的，只要逻辑上保持连续即可。Eclipse中同过配置文件-xmx,-xms来控制堆内存大小。&lt;/p&gt;
+&lt;p&gt;Java程序在运行时创建的所有类实例或数组都放在同一个堆中。而一个JAVA虚拟机实例中只存在一个堆空间，因此所有线程都将共享这个堆。又由于一个Java程序独占一个JAVA虚拟机实例，因而每个Java程序都有它自己的堆空间——它们不会彼此干扰。但是同一个Java程序的多个线程却共享着同一个堆空间，在这种情况下，就得考虑多线程访问对象（堆数据）的同步问题了。&lt;/p&gt;
+&lt;p&gt;JAVA虚拟机有一条在堆中分配新对象的指令，却没有释放内存的指令，正如你无法用Java代码区明确释放一个对象一样。虚拟机自己负责决定如何以及何时释放不再被运行的程序引用的对象所占据的内存。通常，虚拟机把这个任务交给垃圾收集器。&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;http://7xw667.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%874.png&quot; alt=&quot;插图&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;堆内存分为三部分：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Permanent Space 永久存储区&lt;/strong&gt;&lt;br&gt;永久存储区是一个常驻内存区域，用于存放JDK自身所携带的Class,Interface的元数据，也就是说它存储的是运行环境必须的类信息，被装载进此区域的数据是不会被垃圾回收器回收掉的，关闭JVM才会释放此区域所占用的内存。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Young Generation Space 新生区&lt;/strong&gt;&lt;br&gt;新生区是类的诞生、成长、消亡的区域，一个类在这里产生，应用，最后被垃圾回收器收集，结束生命。新生区又分为两部分： 伊甸区（Eden space）和幸存者区（Survivor pace），所有的类都是在伊甸区被new出来的。幸存区有两个： 0区（Survivor 0 space）和1区（Survivor 1 space）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tenure generation space养老区&lt;/strong&gt;&lt;br&gt;养老区用于保存从新生区筛选出来的JAVA对象，一般池对象都在这个区域活跃。   &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方法区：&lt;/strong&gt;&lt;br&gt;同java堆一样也是所有线程共享的一块区域，用于存储已被虚拟机加载的类信息，常量，静态变量等，GC对此区域的收集行为很少出现，但并不代表GC不回收，该区域的GC主要目标是针对常量池的回收和类的卸载，类的卸载条件比较苛刻，低版本的虚拟机经常出现因为该区域的内存没有释放导致内存泄漏。 &lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;http://7xw667.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%875.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;1.类信息：&lt;br&gt;　　　　　修饰符(public final)&lt;br&gt;　　　　　是类还是接口(class,interface)&lt;br&gt;　　　　　类的全限定名(Test/ClassStruct.class)&lt;br&gt;　　　　　直接父类的全限定名(java/lang/Object.class)&lt;br&gt;　　　　　直接父接口的权限定名数组(java/io/Serializable)&lt;br&gt;　　也就是 &lt;strong&gt;public final class ClassStruct extends Object implements Serializable&lt;/strong&gt;这段描述的信息提取&lt;/p&gt;
+&lt;p&gt;2.字段信息：&lt;br&gt;　　　　　修饰符(pirvate)&lt;br&gt;　　　　　字段类型(java/lang/String.class)&lt;br&gt;　　　　　字段名(name)&lt;br&gt;　　也就是类似private String name;这段描述信息的提取&lt;/p&gt;
+&lt;p&gt;3.方法信息:&lt;br&gt;　　　　　修饰符(public static final)&lt;br&gt;　　　　　方法返回值(java/lang/String.class)&lt;br&gt;　　　　　方法名(getStatic_str)&lt;br&gt;　　　　　参数需要用到的局部变量的大小还有操作数栈大小(操作数栈我们后面会讲)&lt;br&gt;　　　　　方法体的字节码(就是花括号里的内容)&lt;br&gt;　　　　　异常表(throws Exception)&lt;br&gt;　　也就是对方法public static final String getStatic_str ()throws Exception的字节码的提取&lt;/p&gt;
+&lt;p&gt; 4.常量池:&lt;br&gt;　　4.1.直接常量：&lt;br&gt;　　　　1.1 CONSTANT_INGETER_INFO整型直接常量池public final int CONST_INT=0;&lt;br&gt;　　　　1.2 CONSTANT_String_info字符串直接常量池   public final String CONST_STR=”CONST_STR”;&lt;br&gt;　　　　1.3 CONSTANT_DOUBLE_INFO浮点型直接常量池&lt;br&gt;　　等等各种基本数据类型基础常量池(待会我们会反编译一个类，来查看它的常量池等。)&lt;/p&gt;
+&lt;p&gt;4.2.方法名、方法描述符、类名、字段名，字段描述符的符号引用&lt;br&gt;　　也就是所以编译器能够被确定，能够被快速查找的内容都存放在这里，它像数组一样通过索引访问，就是专门用来做查找的。&lt;br&gt;　　&lt;br&gt;　　在方法区中，每个类型都对应一个常量池，存放该类型所用到的所有常量，常量池中存储了诸如文字字符串、final变量值、类名和方法名常量。它们以数组形式通过索引被访问，是外部调用与类联系及类型对象化的桥梁。（存的可能是个普通的字符串，然后经过常量池解析，则变成指向某个类的引用）&lt;/p&gt;
+&lt;p&gt;5.类变量：&lt;br&gt;　　就是静态字段( public static String static_str=”static_str”;)&lt;br&gt;　　虚拟机在使用某个类之前，必须在方法区为这些类变量分配空间。&lt;br&gt;&lt;strong&gt;&lt;br&gt;运行时常量区域：&lt;/strong&gt;&lt;br&gt;该区域是方法区域的一部分，Class文件中除了有类的版本，方法，字段，接口等描述外，还有一项是常量池，这部分内容在类加载后进入方法区的常量池中存放。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;直接内存：&lt;/strong&gt;&lt;br&gt;该区域不属于虚拟机区域，但是经常被使用，比如NIO API等 直接调用native函数库来分配堆外内存。若虚拟机总内存大于系统内存，也回报OutOfMemoryError;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;生命周期&quot;&gt;&lt;a href=&quot;#生命周期&quot; class=&quot;headerlink&quot; title=&quot;生命周期&quot;&gt;&lt;/a&gt;生命周期&lt;/h1&gt;&lt;p&gt;知识点总结：java虚拟机的生命周期，当一个java应用main函数启动时虚拟机也同时被启动，而只有当在虚拟机实例中的所有非守护进程都结束时，java虚拟机实例才结束生命。&lt;/p&gt;
+&lt;p&gt;一个运行时的Java虚拟机实例的天职是：负责运行一个java程序。当启动一个Java程序时，一个虚拟机实例也就诞生了。当该程序关闭退出，这个虚拟机实例也就随之消亡。如果同一台计算机上同时运行三个Java程序，将得到三个Java虚拟机实例。每个Java程序都运行于它自己的Java虚拟机实例中。&lt;/p&gt;
+&lt;p&gt;Java虚拟机实例通过调用某个初始类的main()方法来运行一个Java程序。而这个main()方法必须是共有的(public)、静态的(static)、返回值为void，并且接受一个字符串数组作为参数。任何拥有这样一个main()方法的类都可以作为Java程序运行的起点。&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Test&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// TODO Auto-generated method stub&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在上面的例子中，Java程序初始类中的main()方法，将作为该程序初始线程的起点，任何其他的线程都是由这个初始线程启动的。&lt;/p&gt;
+&lt;p&gt;在Java虚拟机内部有两种线程：&lt;em&gt;守护线程和非守护线程&lt;/em&gt;。&lt;em&gt;守护线程&lt;/em&gt; 通常是由虚拟机自己使用的，比如执行垃圾收集任务的线程。但是，Java程序也可以把它创建的任何线程标记为守护线程。而Java程序中的初始线程——就是开始于main()的那个，是&lt;em&gt;非守护线程&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;只要还有任何非守护线程在运行，那么这个Java程序也在继续运行。当该程序中所有的非守护线程都终止时，虚拟机实例将自动退出。假若安全管理器允许，程序本身也能够通过调用Runtime类或者System类的exit()方法来退出。&lt;/p&gt;
+&lt;h1 id=&quot;体系结构&quot;&gt;&lt;a href=&quot;#体系结构&quot; class=&quot;headerlink&quot; title=&quot;体系结构&quot;&gt;&lt;/a&gt;体系结构&lt;/h1&gt;&lt;p&gt;首先，当一个程序启动之前，它的class会被&lt;strong&gt;类装载器&lt;/strong&gt;装入&lt;strong&gt;方法区&lt;/strong&gt;(当虚拟机装载某个类型时，它使用类装载器定位相应的class文件，然后读入这个class文件——1个线性二进制数据流，然后它传输到虚拟机中，紧接着虚拟机提取其中的类型信息，并将这些信息存储到方法区。该类型中的类（静态）变量同样也是存储在方法区中)，执行引擎读取方法区的字节码自适应解析，边解析就边运行（其中一种方式），然后pc寄存器(程序计数器)指向了main函数所在位置，虚拟机开始为main函数在虚拟机栈中预留一个栈帧（每个方法都对应一个栈帧），然后开始跑main函数，main函数里的代码被执行引擎映射成本地操作系统里相应的实现，然后调用本地库接口，本地方法运行的时候，操纵系统会为本地方法分配本地方法栈，用来储存一些临时变量，然后运行本地方法，调用操作系统APIi等等.&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 内存模型 JMM</title>
